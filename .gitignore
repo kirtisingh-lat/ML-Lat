@@ -23,3 +23,4 @@
 datasets/
 output_video/
 video_inference/
+runs/
