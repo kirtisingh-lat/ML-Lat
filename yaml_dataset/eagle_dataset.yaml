@@ -1,0 +1,11 @@
+# dataset.yaml
+path: /home/ss/Kirti/lat/
+
+train: data_tiled_train/images
+val: data_tiled_Val/images
+test: data_tiled_Test/images
+
+nc: 2
+names:
+  0: small_vehicle
+  1: large_vehicle

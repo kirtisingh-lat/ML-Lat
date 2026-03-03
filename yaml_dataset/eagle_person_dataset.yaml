@@ -1,0 +1,10 @@
+path: /home/ss/Kirti/lat/merged_dataset
+train: images/train
+val: images/val
+test: images/test
+
+nc: 3
+names:
+  0: small_vehicle
+  1: large_vehicle
+  2: person

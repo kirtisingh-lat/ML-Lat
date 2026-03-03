@@ -1,0 +1,14 @@
+path: /home/ss/Kirti/lat/datasets/new_merged
+train: images/train
+val: images/val
+test: images/test
+
+nc: 6
+names:
+  0: small_vehicle
+  1: large_vehicle
+  2: train
+  3: airplane
+  4: boat
+  5: person
+  
