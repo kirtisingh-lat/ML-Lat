@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python \"c:/Users/KirtiSingh/ML-Lat/code/unified_dataset.py\" --root \"y:/04_EPS/mar5-to new date\" --out \"y:/04_EPS/unified_dataset\" --mapping \"y:/04_EPS/unified_dataset/mapping.json\")",
+      "Read(//y/04_EPS/mar5-to new date/eagle_dataset_tiled/train/labels/**)",
+      "Read(//y/04_EPS/unified_dataset/train/images/**)",
+      "Read(//y/04_EPS/unified_dataset/val/images/**)",
+      "Read(//y/04_EPS/unified_dataset/test/images/**)",
+      "Read(//y/04_EPS/mar5-to new date/VisDrone/**)",
+      "Read(//y/04_EPS/mar5-to new date/VisDrone/train/**)",
+      "Read(//y/04_EPS/mar5-to new date/VisDrone/val/**)",
+      "Bash(tasklist)",
+      "Read(//y/04_EPS/unified_dataset/**)"
+    ],
+    "additionalDirectories": [
+      "y:\\04_EPS\\unified_dataset\\train"
+    ]
+  }
+}
