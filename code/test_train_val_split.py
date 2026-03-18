@@ -6,8 +6,8 @@ and generates a data.yaml file.
 
 Input structure (any of):
   dataset/
-    images/   ← image files
-    labels/   ← matching .txt label files
+    images/   <- image files
+    labels/   <- matching .txt label files
 
 Output structure:
   output/
@@ -50,6 +50,11 @@ def setup_logging(log_file: Path) -> logging.Logger:
     sh = logging.StreamHandler(sys.stdout)
     sh.setLevel(logging.INFO)
     sh.setFormatter(fmt)
+    if hasattr(sh.stream, 'reconfigure'):
+        try:
+            sh.stream.reconfigure(encoding='utf-8')
+        except Exception:
+            pass
 
     fh = logging.FileHandler(log_file, encoding="utf-8")
     fh.setLevel(logging.DEBUG)
@@ -115,7 +120,7 @@ def collect_pairs(
         logger.info(f"Found {len(images)} images (no labels dir)")
         return pairs
 
-    # Build stem→path index of all labels in one pass — avoids N exists() calls
+    # Build stem->path index of all labels in one pass - avoids N exists() calls
     logger.debug("Indexing label files...")
     label_index: dict[str, Path] = {}
     for root, _, files in os.walk(labels_dir):
@@ -220,7 +225,7 @@ def write_yaml(out_root: Path, class_names: list[str], logger: logging.Logger):
     yaml_path = out_root / "data.yaml"
     with open(yaml_path, "w", encoding="utf-8") as f:
         yaml.dump(data, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
-    logger.info(f"data.yaml written → {yaml_path}")
+    logger.info(f"data.yaml written -> {yaml_path}")
 
 # ── class discovery ───────────────────────────────────────────────────────────
 
@@ -336,7 +341,7 @@ def main():
     logger.info(f"Classes ({len(class_names)}): {class_names}")
 
     train_pairs, val_pairs, test_pairs = split_pairs(pairs, ratios, args.seed)
-    logger.info(f"Split → train={len(train_pairs)}, val={len(val_pairs)}, test={len(test_pairs)}")
+    logger.info(f"Split -> train={len(train_pairs)}, val={len(val_pairs)}, test={len(test_pairs)}")
 
     total_ok = total_err = 0
     for split_name, split_list in [("train", train_pairs), ("val", val_pairs), ("test", test_pairs)]:
